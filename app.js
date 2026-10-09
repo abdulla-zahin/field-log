@@ -1,10 +1,12 @@
 const timeline = [
   { year: '2016—2021', title: 'Mechanical Engineering', subtitle: 'PRIST University · B.Tech', detail: 'The base layer: mechanics, systems thinking and the patience to work through real technical problems.' },
-  { year: '2022—2023', title: 'First site and commercial exposure', subtitle: 'Aviation maintenance → Sales Engineering', detail: 'Early experience across maintenance, engineering sales and client-facing technical conversations made one thing clear: engineering has to work commercially and operationally, not only on paper.' },
-  { year: '2023—2024', title: 'Business Analytics', subtitle: 'Northumbria University · MSc', detail: 'Added the data lens—learning how to turn incomplete information into a decision, a pattern that now shows up in every site coordination issue.' },
+  { year: '2022', title: 'First real responsibility', subtitle: 'AAG Centre for Aviation Training · Workshop & storage setup', detail: 'Assigned to help build the workshop and storage space—an early moment where engineering became responsibility for a real, working environment.' },
+  { year: '2022—2023', title: 'Commercial exposure', subtitle: 'Sales Engineering', detail: 'Learned that engineering has to work commercially and operationally, not only on paper.' },
+  { year: '2023—2024', title: 'A deliberate pivot', subtitle: 'Northumbria University · MSc Business Analytics', detail: 'The UK master’s degree was a pivotal choice: build a better future by adding a data lens to engineering intuition.' },
   { year: '2024—2026', title: 'Coordination, BOQs and project systems', subtitle: 'SUSWEN · Pearlsoft · Infinity Max', detail: 'Built the bridge between technical-commercial work: BOQs, quotations, prequalification, project coordination and practical stakeholder follow-up.' },
   { year: '2025', title: 'AMPP Coating Inspector Level 2', subtitle: 'Quality and inspection discipline', detail: 'A stronger quality mindset: verify the condition, work to the standard, retain evidence and do not close an issue by assumption.' },
-  { year: '2026—Now', title: 'MEP site execution', subtitle: 'Aroma · Nshama Address Grand Residence', detail: 'Now working in live contractor-side MEP coordination: connecting drawings, site conditions, specialist teams, inspections and Civil release into a traceable execution route.' }
+  { year: '2026—Now', title: 'Aroma — the reset', subtitle: 'MEP site execution · Nshama Address Grand Residence', detail: 'The reset where earlier work, study and discipline started forming one direction: live contractor-side MEP coordination, from drawings and site conditions through to a traceable execution route.' },
+  { year: 'Always in parallel', title: 'Discipline outside work', subtitle: 'Gym + faith', detail: 'The gym became an identity: consistency when motivation disappears. Faith became the slab—the part that keeps the rest standing.' }
 ];
 
 const cases = [

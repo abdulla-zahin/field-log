@@ -7,6 +7,7 @@ A GitHub-backed interactive record of a Mechanical MEP Engineer with a Business 
 - A clickable career timeline
 - A controlled field board for the current MEP assignment
 - A filterable systems map across execution, analysis and engineering
+- A visual field-note layer using selected, public-safe personal and site images
 
 ## Public-content boundary
 
