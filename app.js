@@ -10,12 +10,13 @@ const chapters = [
   { dates: 'Jun 2026—Now', mark: 'AR', type: 'CURRENT CHAPTER', title: 'Aroma International Building Contracting', subtitle: 'MEP Engineer', current: true, story: 'The reset: a live MEP role where engineering, commercial awareness, coordination and analytical thinking meet on site.', worked: ['Working in contractor-side MEP coordination and execution follow-up.', 'Applying drawing review, site verification and structured follow-through in a live environment.', 'Live field-board evidence is recorded below.'], built: 'A working site-execution mindset.' }
 ];
 
-const cases = [
-  { title: 'Box & earth-pit location checks', tag: 'LOCATION CONTROL', detail: 'Cross-checking location and readiness against coordinated information before protection or follow-on work. The record is about a clear reference and accountable follow-up—not an unverified completion claim.' },
-  { title: 'Basement service coordination', tag: 'INTERFACE CONTROL', detail: 'Reviewing service levels, routing interfaces and access conditions in basement and plant areas; then routing the point to the responsible trade for confirmation.' },
-  { title: 'Roof / service-roof reviews', tag: 'SEQUENCE CONTROL', detail: 'Turning service-zone observations into practical, owned actions before access becomes constrained by the next activity.' },
-  { title: 'Daily field log', tag: 'TRACEABILITY', detail: 'Tracking trade manpower, shift activity, inspection references, open coordination points, photo evidence and the next action so handovers do not lose the technical thread.' }
+const fieldControls = [
+  { title: 'Location verification', tag: 'ROUTINE CONTROL', detail: 'Boxes, earth pits and related provisions cross-checked against coordinated references when required.' },
+  { title: 'Service-interface coordination', tag: 'ROUTINE CONTROL', detail: 'Basement, roof and service-area interfaces reviewed with the relevant trade as work develops.' },
+  { title: 'Sequence and access review', tag: 'ROUTINE CONTROL', detail: 'Open points noted before follow-on work reduces access or changes the working sequence.' }
 ];
+
+const proofOfWork = { title: 'Daily field log', tag: 'PROOF OF WORK', detail: 'A live working record of manpower, shift activity, inspection references, open coordination points, photo evidence and the next action—so handovers do not lose the technical thread.' };
 
 const projectNotes = [
   { tag: 'TECHNICAL ENVIRONMENT', title: 'A320neo simulator environment', subtitle: 'AAG Centre for Aviation Training · 2022', context: 'An early technical workplace, joined while the simulator environment and its workshop/storage support were being established.', contribution: 'Received aircraft-system exposure and supported the working environment alongside an international team.', boundary: 'Presented as technical-environment and setup support, not aircraft maintenance certification or simulator delivery ownership.' },
@@ -50,14 +51,19 @@ chapters.forEach((item) => {
   storyTree.appendChild(el);
 });
 
-const caseList = document.querySelector('#case-study-list');
-cases.forEach((item) => {
+const fieldWorkList = document.querySelector('#field-work-list');
+fieldControls.forEach((item) => {
   const el = document.createElement('article');
-  el.className = 'case-card';
-  el.innerHTML = `<div class="case-card-header"><div><span>${item.tag}</span><h3>${item.title}</h3></div><button aria-label="Show case study">+</button></div><p>${item.detail}</p>`;
-  el.addEventListener('click', () => el.classList.toggle('open'));
-  caseList.appendChild(el);
+  el.className = 'field-control';
+  el.innerHTML = `<span>${item.tag}</span><h3>${item.title}</h3><p>${item.detail}</p>`;
+  fieldWorkList.appendChild(el);
 });
+
+const proof = document.createElement('article');
+proof.className = 'proof-card';
+proof.innerHTML = `<div class="proof-card-header"><div><span>${proofOfWork.tag}</span><h3>${proofOfWork.title}</h3></div><button aria-label="Show daily field log detail">+</button></div><p>${proofOfWork.detail}</p>`;
+proof.addEventListener('click', () => proof.classList.toggle('open'));
+fieldWorkList.appendChild(proof);
 
 const projectNoteGrid = document.querySelector('#project-note-grid');
 projectNotes.forEach((item) => {
