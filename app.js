@@ -3,11 +3,18 @@ const chapters = [
   { dates: '2022', mark: 'AAG', type: 'FIRST ROLE', title: 'AAG Centre for Aviation Training', subtitle: 'Workshop and simulator environment', story: 'First role after college, joining while an Airbus A320neo 2.0 flight-simulator environment was being developed from scratch.', worked: ['Received training on how flight systems work.', 'Supported the workshop and storage setup within a new technical environment.', 'Worked alongside an international group of colleagues.'], built: 'Confidence around complex systems and unfamiliar technical environments.' },
   { dates: 'Aug 2022—Feb 2023', mark: 'PS', type: 'COMMERCIAL', title: 'Plustech Systems & Solutions', subtitle: 'Sales Engineer', story: 'A first corporate, office-based role that showed how much engineering work depends on controlled information and follow-through.', worked: ['Followed documentation, quotations, BOQs and payment-related records.', 'Prepared and tracked technical-commercial information for enquiries and proposals.', 'Started using Excel and independent research to make work more structured.'], built: 'Commercial discipline and a growing business-analysis mindset.' },
   { dates: '2023—2024', mark: 'UK', type: 'STUDY / PIVOT', title: 'MSc Business Analytics', subtitle: 'Northumbria University · United Kingdom', story: 'A deliberate move to add structured analysis to an engineering background and build a wider direction independently.', worked: ['Worked alongside study and served as class representative in the final semester.', 'Led three semester projects.', 'Achieved 80% in the third semester, leading to a real-world group project as group lead.'], built: 'Analytical structure, communication and project leadership.' },
-  { dates: '2024—Now', mark: 'SE', type: 'COORDINATION', title: 'SUSWEN', subtitle: 'Business development and project coordination support', story: 'A parallel coordination chapter that kept technical-commercial work connected to people, documents and client conversations.', worked: ['Supported small coordination tasks and client meetings.', 'Worked with BOQs, reports and project documentation.', 'Helped keep updates and follow-up visible across workstreams.'], built: 'Practical coordination and stakeholder follow-through.' },
+  { dates: '2024—2026', mark: 'SE', type: 'COORDINATION', title: 'SUSWEN', subtitle: 'Business development and project coordination support', story: 'A parallel coordination chapter that kept technical-commercial work connected to people, documents and client conversations.', worked: ['Supported small coordination tasks and client meetings.', 'Worked with BOQs, reports and project documentation.', 'Helped keep updates and follow-up visible across workstreams.'], built: 'Practical coordination and stakeholder follow-through.' },
   { dates: '2025', mark: 'PT', type: 'ANALYSIS', title: 'Pearlsoft Technologies', subtitle: 'Junior Business Analyst', story: 'A fully office-based business-analysis role that sharpened how requirements become workflows, tests and delivery actions.', worked: ['Worked with requirements documentation, workflows and wireframes.', 'Supported UAT and Jira-based follow-up.', 'Learned that analysis is strongest when it stays connected to technical, practical work.'], built: 'Requirement clarity and structured problem definition.' },
   { dates: '2025—2026', mark: 'IM', type: 'OWNERSHIP', title: 'Infinity Max Contracting', subtitle: 'Business Development Manager', story: 'The chapter where commercial and operational responsibilities came through one working path—from quotations to people and client representation.', worked: ['Handled BOQs, quotations, payments and client representation.', 'Coordinated with main contractors and followed contracting opportunities.', 'Supported labour handling, site administration and manpower planning.'], built: 'Operational ownership across cost, people and coordination.' },
   { dates: '2025', mark: 'AM', type: 'CREDENTIAL', title: 'AMPP / NACE', subtitle: 'Coating Inspector Levels 1 & 2', story: 'A deliberate step toward stronger technical credibility and inspection discipline.', worked: ['Completed both levels on the first attempt.', 'Added a standards-led approach to condition checks, evidence and quality records.'], built: 'Inspection awareness and quality discipline.' },
-  { dates: 'Jun 2026—Now', mark: 'AR', type: 'CURRENT CHAPTER', title: 'Aroma International Building Contracting', subtitle: 'MEP Engineer', current: true, story: 'The reset: a live MEP role where engineering, commercial awareness, coordination and analytical thinking meet on site.', worked: ['Working in contractor-side MEP coordination and execution follow-up.', 'Applying drawing review, site verification and structured follow-through in a live environment.', 'Detailed field board to follow in the next release.'], built: 'A working site-execution mindset.' }
+  { dates: 'Jun 2026—Now', mark: 'AR', type: 'CURRENT CHAPTER', title: 'Aroma International Building Contracting', subtitle: 'MEP Engineer', current: true, story: 'The reset: a live MEP role where engineering, commercial awareness, coordination and analytical thinking meet on site.', worked: ['Working in contractor-side MEP coordination and execution follow-up.', 'Applying drawing review, site verification and structured follow-through in a live environment.', 'Live field-board evidence is recorded below.'], built: 'A working site-execution mindset.' }
+];
+
+const cases = [
+  { title: 'Box & earth-pit location checks', tag: 'LOCATION CONTROL', detail: 'Cross-checking location and readiness against coordinated information before protection or follow-on work. The record is about a clear reference and accountable follow-up—not an unverified completion claim.' },
+  { title: 'Basement service coordination', tag: 'INTERFACE CONTROL', detail: 'Reviewing service levels, routing interfaces and access conditions in basement and plant areas; then routing the point to the responsible trade for confirmation.' },
+  { title: 'Roof / service-roof reviews', tag: 'SEQUENCE CONTROL', detail: 'Turning service-zone observations into practical, owned actions before access becomes constrained by the next activity.' },
+  { title: 'Daily field log', tag: 'TRACEABILITY', detail: 'Tracking trade manpower, shift activity, inspection references, open coordination points, photo evidence and the next action so handovers do not lose the technical thread.' }
 ];
 
 const tools = [
@@ -35,6 +42,15 @@ chapters.forEach((item) => {
     el.querySelector('.story-toggle').setAttribute('aria-expanded', String(open));
   });
   storyTree.appendChild(el);
+});
+
+const caseList = document.querySelector('#case-study-list');
+cases.forEach((item) => {
+  const el = document.createElement('article');
+  el.className = 'case-card';
+  el.innerHTML = `<div class="case-card-header"><div><span>${item.tag}</span><h3>${item.title}</h3></div><button aria-label="Show case study">+</button></div><p>${item.detail}</p>`;
+  el.addEventListener('click', () => el.classList.toggle('open'));
+  caseList.appendChild(el);
 });
 
 const toolGrid = document.querySelector('#tool-grid');
