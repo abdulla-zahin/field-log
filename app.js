@@ -17,6 +17,12 @@ const cases = [
   { title: 'Daily field log', tag: 'TRACEABILITY', detail: 'Tracking trade manpower, shift activity, inspection references, open coordination points, photo evidence and the next action so handovers do not lose the technical thread.' }
 ];
 
+const projectNotes = [
+  { tag: 'TECHNICAL ENVIRONMENT', title: 'A320neo simulator environment', subtitle: 'AAG Centre for Aviation Training · 2022', context: 'An early technical workplace, joined while the simulator environment and its workshop/storage support were being established.', contribution: 'Received aircraft-system exposure and supported the working environment alongside an international team.', boundary: 'Presented as technical-environment and setup support, not aircraft maintenance certification or simulator delivery ownership.' },
+  { tag: 'COMMERCIAL / MANPOWER SUPPORT', title: 'Al Maktoum International Airport', subtitle: 'Infinity Max Contracting · 2025—2026', context: 'A large aviation-infrastructure opportunity that brought commercial follow-through, contractor interfaces and manpower planning into one working stream.', contribution: 'Supported BOQ, client/contractor follow-up and manpower planning within the contracting workflow.', boundary: 'Presented as commercial and coordination support only; it does not claim direct package execution.', link: { href: 'https://dubaiairports.ae/corporate/our-story/dwc-dubai-world-central', label: 'Public project context ↗' } },
+  { tag: 'PREQUALIFICATION / TENDER SUPPORT', title: 'DAMAC Hills 2', subtitle: 'Infinity Max Contracting · 2025—2026', context: 'A residential contracting opportunity handled through submission and commercial-preparation work.', contribution: 'Supported prequalification, BOQ/tender preparation and proposal coordination.', boundary: 'Presented as prequalification and proposal support only; it does not claim site delivery or direct execution.', link: { href: 'https://www.damacproperties.com/en-us/communities/damac-hills-2/projects/evergreens/', label: 'Public project context ↗' } }
+];
+
 const tools = [
   { name:'Drawing & site verification', category:'site', desc:'Coordinated-drawing checks, provisions, access and sequence.' },
   { name:'MEP coordination', category:'site', desc:'HVAC, plumbing, drainage, fire and cross-trade interfaces.' },
@@ -51,6 +57,20 @@ cases.forEach((item) => {
   el.innerHTML = `<div class="case-card-header"><div><span>${item.tag}</span><h3>${item.title}</h3></div><button aria-label="Show case study">+</button></div><p>${item.detail}</p>`;
   el.addEventListener('click', () => el.classList.toggle('open'));
   caseList.appendChild(el);
+});
+
+const projectNoteGrid = document.querySelector('#project-note-grid');
+projectNotes.forEach((item) => {
+  const el = document.createElement('article');
+  el.className = 'project-note';
+  const link = item.link ? `<a href="${item.link.href}" target="_blank" rel="noreferrer">${item.link.label}</a>` : '';
+  el.innerHTML = `<span>${item.tag}</span><h3>${item.title}</h3><p class="project-note-subtitle">${item.subtitle}</p><button class="project-note-toggle" aria-label="Open note for ${item.title}" aria-expanded="false">Read note <b>+</b></button><div class="project-note-detail"><p>${item.context}</p><div><span>MY CONTRIBUTION</span><p>${item.contribution}</p></div><div class="project-boundary"><span>ROLE BOUNDARY</span><p>${item.boundary}</p></div>${link}</div>`;
+  el.addEventListener('click', (event) => {
+    if (event.target.closest('a')) return;
+    const open = el.classList.toggle('open');
+    el.querySelector('.project-note-toggle').setAttribute('aria-expanded', String(open));
+  });
+  projectNoteGrid.appendChild(el);
 });
 
 const toolGrid = document.querySelector('#tool-grid');
